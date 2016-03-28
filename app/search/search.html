@@ -1,0 +1,59 @@
+<div layout="row">
+	<div flex="33">
+
+		<h2>Course Search</h2>
+
+		<md-input-container class="md-block">
+			<label class="md-visually-hidden">Search</label>
+			<input data-ng-model="vm.searchKeyword" placeholder="title, instructor, keyword">
+		</md-input-container>
+
+		<md-input-container class="md-block">
+			<label>Term</label>
+			<md-select data-ng-model="term">
+				<md-option data-ng-repeat="term in vm.terms" value="{{term}}">{{term}}</md-option>
+			</md-select>
+		</md-input-container>
+		<br>
+		<md-input-container class="md-block">
+			<label>Subject</label>
+			<md-select data-ng-model="subject">
+				<md-option data-ng-repeat="subject in vm.subjects" value="{{subject}}">{{subject}}</md-option>
+			</md-select>
+		</md-input-container>
+		<br>
+		<div class="label">Credits</div>
+		<md-input-container>
+			<label>From</label>
+			<md-select data-ng-model="fromCredit">
+				<md-option>Any</md-option>
+			</md-select>
+		</md-input-container>
+		to
+		<md-input-container>
+			<label>To</label>
+			<md-select data-ng-model="toCredit">
+				<md-option>Any</md-option>
+			</md-select>
+		</md-input-container>
+
+		<md-input-container class="md-block">
+			<md-checkbox data-ng-model="seats" aria-label="Open seats only">
+				Open seats only
+			</md-checkbox>
+		</md-input-container>
+
+		<md-input-container class="md-block">
+			<md-checkbox data-ng-model="online" aria-label="Open seats only">
+				Online only
+			</md-checkbox>
+		</md-input-container>
+
+		<md-switch data-ng-model="moreOptions" aria-label="show more options">
+			Show more options
+		</md-switch>
+
+		<md-button data-ng-click="vm.search()" class="md-raised md-primary">Search</md-button> 
+	</div>
+
+</div>
