@@ -3,14 +3,14 @@
 
 	// Declare app level module which depends on views, and components
 	angular
-		.module('myApp')
+		.module('app')
 		.config(['$routeProvider', function($routeProvider) {
-			$routeProvider.when('/search', {
-				templateUrl: 'search/search.html',
-				controller: 'SearchController',
+			$routeProvider.when('/docs', {
+				templateUrl: 'docs/docs.html',
+				controller: 'DocsController',
 				controllerAs: 'vm'
 			}).
-			otherwise({redirectTo: '/search'});
+				otherwise({redirectTo: '/docs'});
 		}]);
 
 })();

@@ -3,11 +3,11 @@
 
 	// Declare app level module which depends on views, and components
 	angular
-		.module('myApp', [
-			'myApp.core',
-			'myApp.search',
-			'myApp.view2',
-			'myApp.version'
+		.module('app', [
+			'app.core',
+			'app.home',
+			'app.docs',
+			'app.version'
 		]);
 
 })();

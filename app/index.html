@@ -1,71 +1,88 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="app" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>My AngularJS App</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css"> -->
-  <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
-  <link rel="stylesheet" href="assets/app.css">
-  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
   <base href="/">
+  <!-- Stylesheets -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/bower_components/angular-material/angular-material.min.css" rel="stylesheet">
+  <link href="/bower_components/uw-ui-toolkit/dist/css/uw-ui-toolkit.min.css" rel="stylesheet" media="screen">
+  <link href="/assets/app.css" rel="stylesheet">
+  <!-- Library Dependencies -->
+  <script src="/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-  <md-tabs md-stretch-tabs class="md-primary" md-selected="data.selectedIndex">
-    <md-tab id="tab1" aria-controls="tab1-content">
-      Search
-    </md-tab>
-    <md-tab id="tab2" aria-controls="tab2-content">
-      Cart
-    </md-tab>
-  </md-tabs>
-  <md-content flex md-scroll-y>
-    <ui-view layout="column" layout-fill layout-padding>
-      <div class="inset" hide-sm></div>
-        <ng-switch on="data.selectedIndex" class="tabpanel-container">
-          <div role="tabpanel"
-               id="tab1-content"
-               aria-labelledby="tab1"
-               ng-switch-when="0"
-               md-swipe-left="next()"
-               md-swipe-right="previous()"
-               layout="row" layout-align="left">
 
-              <div ng-view style="width:100%"></div>
+  <!-- NAVIGATION -->
 
+  <nav class="navbar navbar-inverse" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">IA Angular Seed Project</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li><a href="https://kb.wisc.edu/helpdesk/" target="_blank">Help Desk</a></li>
+              <li><a href="http://it.wisc.edu/" target="_blank">IT at UW-Madison</a></li>
+          </ul>
+      </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+
+  <div id="app-content">
+      <div class="wrapper" flex>
+          <md-card layout-padding>
+              <div ng-view></div>
+          </md-card>
+      </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+      <div id="footer-content">
+          <div class="wrapper" flex layout-padding>
+              <div>DoIT Integrated Applications &mdash; Angular Seed App v.<span app-version></span></div>
           </div>
-        </ng-switch>
-      </ui-view>
-    </md-content>
-  <!-- <div ng-view></div> -->
+      </div>
+  </footer>
 
-  <div>Angular seed app: v<span app-version></span></div>
-
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
-  <script src="bower_components/angular/angular.min.js"></script>
-  <script src="bower_components/angular-route/angular-route.min.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-  <script src="bower_components/angular-aria/angular-aria.min.js"></script>
-  <script src="bower_components/angular-material/angular-material.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/bower_components/angular-route/angular-route.min.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="/bower_components/angular-aria/angular-aria.min.js"></script>
+  <script src="/bower_components/angular-material/angular-material.min.js"></script>
+  <script src="/bower_components/moment/moment.js"></script>
 
   <script src="app.module.js"></script>
   <script src="app.config.js"></script>
   <script src="core/core.module.js"></script>
   <script src="core/data.service.js"></script>
   
-  <script src="search/config.route.js"></script>
-  <script src="search/search.module.js"></script>
-  <script src="search/search.controller.js"></script>
+  <script src="home/home.route.js"></script>
+  <script src="home/home.module.js"></script>
+  <script src="home/home.controller.js"></script>
   
-  <script src="view2/view2.js"></script>
+  <script src="docs/docs.route.js"></script>
+  <script src="docs/docs.module.js"></script>
+  <script src="docs/docs.controller.js"></script>
   
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>

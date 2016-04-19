@@ -1,7 +1,9 @@
 {
   "rewrites" : [
     {"source":"/", "destination" : "index.html"},
-    {"source":"/search", "destination" : "index.html"}
+    {"source":"/home", "destination" : "index.html"},
+	{"source":"/docs/:doc", "destination" : "index.html"},
+	{"source":"/view2", "destination" : "index.html"}
   ],
   "redirects" : [
     {"source":"/api/v1/outages/:segment/:segment2", "destination": "/__/proxy/api/v1/outages/:segment/:segment2"},
