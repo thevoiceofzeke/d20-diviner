@@ -1,0 +1,17 @@
+{
+  "rewrites" : [
+    {"source":"/", "destination" : "index.html"},
+    {"source":"/search", "destination" : "index.html"}
+  ],
+  "redirects" : [
+    {"source":"/api/v1/outages/:segment/:segment2", "destination": "/__/proxy/api/v1/outages/:segment/:segment2"},
+    {"source":"/api/v1/outages/:segment", "destination": "/__/proxy/api/v1/outages/:segment"}
+  ],
+  "proxy": {
+    "api": {
+      "origin": "http://localhost:8080/api/",
+      "cookies": false,
+      "timeout": 30
+    }
+  }
+}
