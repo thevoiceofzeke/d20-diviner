@@ -1,0 +1,59 @@
+<div flex layout-padding>
+	<div layout="row">
+		<h1 class="page-title">Rod of Wonder roller</h1>
+		<span flex></span>
+		<form ng-submit="roll(vm.manualRoll)" ng-if="!vm.isResult">
+			<md-input-container class="no-bottom-margin">
+				<label>Manual roll</label>
+				<input ng-model="vm.manualRoll">
+			</md-input-container>
+			<md-button class="md-primary md-icon-button icon-large" type="submit" aria-label="roll d20 for rod of wonder" ng-click="vm.roll()">
+				<md-icon md-svg-icon="d20"></md-icon>
+				<md-tooltip md-direction="left">
+					Roll a d20
+				</md-tooltip>
+			</md-button>
+		</form>
+		<md-button class="md-warn md-icon-button" aria-label="clear results to roll again" ng-click="vm.init()" ng-if="vm.isResult">
+			<md-tooltip md-direction="left">
+				Clear and roll again
+			</md-tooltip>
+			<md-icon>refresh</md-icon>
+		</md-button>
+	</div>
+	<md-content flex layout="row" class="bg-transparent">
+		<h2 layout="column" class="roll-result" ng-if="vm.result == 0">
+			{{ vm.resultPlaceholder }}
+		</h2>
+		<h2 layout="column" class="roll-result" ng-if="vm.result != 0">
+			{{ vm.result }}
+		</h2>
+		<div class="roll-content" flex>
+			<!-- EFFECT CARD -->
+			<md-card class="card-effect fade" ng-if="vm.result != 0">
+				<md-card-title>
+					<md-card-title-text>
+						<a class="md-primary md-title" ng-if="vm.effect.url !== ''" ng-href="{{ vm.effect.url }}" target="_blank">
+							{{ vm.effect.name }}
+						</a>
+						<span class="md-title" ng-if="vm.effect.url === ''">{{ vm.effect.name }}</span>
+					</md-card-title-text>
+				</md-card-title>
+				<md-divider></md-divider>
+				<md-subheader class="md-primary">Description</md-subheader>
+				<md-divider></md-divider>
+				<md-card-content>
+					<p class="effect-description">{{ vm.effect.description }}</p>
+					<md-list class="effect-notes" ng-if="vm.effect.notes.length > 0">
+						<md-divider></md-divider>
+						<md-subheader class="md-primary">Notes</md-subheader>
+						<md-divider></md-divider>
+						<md-list-item ng-repeat="note in vm.effect.notes">
+							<p>{{ note }}</p>
+						</md-list-item>
+					</md-list>
+				</md-card-content>
+			</md-card>
+		</div>
+	</md-content>
+</div>

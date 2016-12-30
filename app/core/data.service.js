@@ -1,6 +1,6 @@
 /**
- * @desc Service used to retrieve outages data from the public outages API
- * In its current state, this service will not work unless the outages-integration back end application is running.
+ * @desc Example service used to retrieve nothing in particular
+ * This is just here as a stub
  */
 (function() {
 	'use strict';
@@ -20,18 +20,16 @@
 		return service;
 
 		function getSampleData() {
-			var startDate 	= moment().format('YYYY-MM-DD');
-			var endDate 	= moment().format('YYYY-MM-DD');
 
-			return $http.get('/api/v1/outages/' + startDate + '/' + endDate)
-				.then(getOutagesComplete)
-				.catch(getOutagesFailed);
+			return $http.get('')
+				.then(getDataComplete)
+				.catch(getDataFailed);
 
-			function getOutagesComplete(response) {
+			function getDataComplete(response) {
 				return response.data;
 			}
 
-			function getOutagesFailed (error) {
+			function getDataFailed (error) {
 				return 'Error retrieving data: \n' + error;
 			}
 		}

@@ -1,20 +1,138 @@
 /* app css stylesheet */
 body, #application-body {
-	background-color: #f7f7f7;
+	background-color: #e8e8e8;
 }
-.wrapper {
-	max-width: 1200px;
-	margin: 0 auto;
+a {
+	text-decoration: none;
+	color: #d06565;
 }
-.navbar {
-	margin-bottom: 0;
-}
-.navbar-inverse {
-	background-color: #c5050c;
-	border-color: #890308;
-}
-.navbar .navbar-collapse .nav>li.active,
-.navbar .navbar-collapse .nav>li>a:hover {
-	background-color: #9b0000;
+.md-button {
+	text-transform: none;
 }
 
+/* HELPER CLASSES */
+.bg-transparent {
+	background-color: transparent;
+}
+.no-bottom-margin {
+	margin-bottom: 0;
+}
+
+/* TOOLBAR */
+.app-title {
+	font-weight: 600;
+}
+.app-subtitle {
+	font-size: 1rem;
+}
+
+/* SIDE NAVIGATION */
+.md-sidenav-left {
+	height: 100%;
+	border-right: 1px solid #d4d4d4;
+}
+.md-sidenav-left .md-list-item-inner p {
+	font-size: 14px;
+	color: #555;
+}
+.md-sidenav-left .md-list-item-inner svg {
+	opacity: .54;
+}
+
+/* VIEW -- HOME */
+.button-set__roll button.md-button.roll-initial {
+	margin-right: 0;
+}
+.button-set__roll button.md-button.roll-additional {
+	margin-left: 0;
+}
+span.roll-result {
+	margin-left: 18px;
+	font-size: 20px;
+	font-weight: 600;
+}
+span.roll-times-rolled {
+	color: #555;
+	font-size: 12px;
+	margin-left: 18px;
+}
+span.icon__die-icon md-icon, .md-icon-button.icon-large md-icon {
+	height: 40px;
+	width: 40px;
+}
+.md-icon-button.icon-large {
+	padding: 4px;
+	width: 50px;
+	height: 50px;
+}
+
+/* VIEW -- ROD OF WONDER */
+.roll-content .md-title {
+	font-size: 24px;
+}
+h1.page-title {
+	margin: 8px 0;
+	font-size: 20px;
+	font-weight: 700;
+	color: rgba(0,0,0,0.52);
+}
+
+h2.roll-result {
+	font-weight: 700;
+	font-size: 80px;
+	line-height: 80px;
+	margin: 0;
+	width: 90px;
+}
+
+h3.roll-effect {
+	font-weight: 400;
+	font-size: 30px;
+	margin: 40px 0 0 0;
+}
+
+div.roll-content {
+	padding: 0 12px;
+}
+p.effect-description {
+	font-size: 16px;
+}
+md-card.card-effect md-card-title {
+	height: 30px;
+	padding-top: 34px;
+}
+
+md-list.effect-notes {
+	margin: 0 -16px;
+}
+
+md-list.effect-notes p {
+	font-size: 14px;
+}
+
+md-list.effect-notes md-list-item {
+	padding-left: 30px;
+}
+
+/* ANIMATIONS */
+.fade.ng-enter {
+	transition: all .3s cubic-bezier(.55,0,.55,.2);
+	opacity:0;
+}
+.fade.ng-enter.ng-enter-active {
+	opacity:1;
+}
+.fade.ng-leave {
+	transition: all .3s cubic-bezier(.55,0,.55,.2);
+}
+.fade.ng-leave-active {
+	opacity: 0;
+}
+
+
+
+@media screen and (min-width: 1280px) {
+	.md-sidenav-left md-content {
+		background-color: #e8e8e8;
+	}
+}

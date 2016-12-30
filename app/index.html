@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
+  <title>D20 | Diviner</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/">
@@ -14,7 +14,6 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
   <link href="/bower_components/angular-material/angular-material.min.css" rel="stylesheet">
-  <link href="/bower_components/uw-ui-toolkit/dist/css/uw-ui-toolkit.min.css" rel="stylesheet" media="screen">
   <link href="/assets/app.css" rel="stylesheet">
   <!-- Library Dependencies -->
   <script src="/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
@@ -22,46 +21,41 @@
 <body>
 
   <!-- NAVIGATION -->
+  <md-toolbar class="md-primary" ng-controller="ToolbarController as vm">
+	  <div class="md-toolbar-tools">
+		  <!-- always show sidenav on large screens -->
+		  <md-button class="md-icon-button" aria-label="Side navigation" ng-click="vm.toggleSidenav()" hide-gt-md>
+			  <md-icon>menu</md-icon>
+		  </md-button>
+		  <h2>
+			  <a href="/">
+				  <span class="app-title">D20</span>
+				  <span class="app-subtitle">Diviner</span>
+			  </a>
+		  </h2>
+		  <span flex></span>
+	  </div>
+  </md-toolbar>
 
-  <nav class="navbar navbar-inverse" role="navigation">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">IA Angular Seed Project</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav navbar-right">
-              <li><a href="https://kb.wisc.edu/helpdesk/" target="_blank">Help Desk</a></li>
-              <li><a href="http://it.wisc.edu/" target="_blank">IT at UW-Madison</a></li>
-          </ul>
-      </div>
-  </nav>
-
-  <!-- MAIN CONTENT -->
-
-  <div id="app-content">
-      <div class="wrapper" flex>
-          <md-card layout-padding>
-              <div ng-view></div>
-          </md-card>
-      </div>
+  <div layout-gt-md="row">
+	  <!-- SIDENAV -->
+	  <md-sidenav md-component-id="left" class="md-sidenav-left"  md-is-locked-open="$mdMedia('gt-md')">
+		  <md-toolbar class="md-primary" hide-gt-md>
+			  <h1 class="md-toolbar-tools">Menu</h1>
+		  </md-toolbar>
+		  <md-content flex ng-controller="SidenavController as navCtrl">
+			  <md-list>
+				  <md-list-item ng-repeat="setting in navCtrl.settings" ng-click="navCtrl.navigateTo(setting.url)">
+					  <md-icon md-svg-icon="{{ setting.icon }}"></md-icon>
+					  <p>{{ setting.name }}</p>
+				  </md-list-item>
+			  </md-list>
+		  </md-content>
+	  </md-sidenav>
+	  <!-- MAIN CONTENT -->
+	  <div ng-view flex></div>
   </div>
 
-  <!-- FOOTER -->
-  <footer>
-      <div id="footer-content">
-          <div class="wrapper" flex layout-padding>
-              <div>DoIT Integrated Applications &mdash; Angular Seed App v.<span app-version></span></div>
-          </div>
-      </div>
-  </footer>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="/bower_components/angular/angular.min.js"></script>
@@ -73,19 +67,22 @@
 
   <script src="app.module.js"></script>
   <script src="app.config.js"></script>
+  <script src="app.controller.js"></script>
   <script src="core/core.module.js"></script>
   <script src="core/data.service.js"></script>
   
-  <script src="home/home.route.js"></script>
-  <script src="home/home.module.js"></script>
-  <script src="home/home.controller.js"></script>
+  <script src="view-home/home.route.js"></script>
+  <script src="view-home/home.module.js"></script>
+  <script src="view-home/home.controller.js"></script>
   
-  <script src="docs/docs.route.js"></script>
-  <script src="docs/docs.module.js"></script>
-  <script src="docs/docs.controller.js"></script>
-  
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
+  <script src="view-RoW/RoW.route.js"></script>
+  <script src="view-RoW/RoW.module.js"></script>
+  <script src="view-RoW/RoW.controller.js"></script>
+
+	<script src="view-character-sheet/character-sheet.route.js"></script>
+	<script src="view-character-sheet/character-sheet.module.js"></script>
+	<script src="view-character-sheet/character-sheet.controller.js"></script>
+
+
 </body>
 </html>

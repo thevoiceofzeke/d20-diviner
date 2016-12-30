@@ -1,8 +1,8 @@
 {
-  "name": "ia-angular-seed-project",
-  "description": "A seed project for AngularJS sites developed by DoIT / ADI / Integrated Applications",
-  "version": "0.1.0-SNAPSHOT",
-  "homepage": "https://git.doit.wisc.edu/adi-ia/ia-angular-seed-project",
+  "name": "d20-app",
+  "description": "An angular material app for D&D assistance",
+  "version": "0.1.0",
+  "homepage": "",
   "private": true,
   "dependencies": {
     "angular": "1.5.5",

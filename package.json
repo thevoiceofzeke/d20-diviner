@@ -1,8 +1,8 @@
 {
-  "name": "ia-angular-seed-project",
+  "name": "d20-app",
   "private": true,
-  "version": "0.1.0-SNAPSHOT",
-  "description": "A seed project for AngularJS sites developed by DoIT / ADI / Integrated Applications",
+  "version": "0.1.0",
+  "description": "An angular material app for D&D assistance",
   "repository": "",
   "devDependencies": {
     "bower": "1.7.7",
@@ -21,7 +21,7 @@
     "postinstall": "bower install",
 
     "prestart": "npm install",
-    "start": "superstaticp app -c superstatic.json --debug --port 8000 --host 127.0.0.1 --services proxy",
+    "start": "http-server ./app -p 8000",
 
     "pretest": "npm install",
     "test": "karma start karma.conf.js",

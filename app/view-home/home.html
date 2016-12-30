@@ -1,0 +1,30 @@
+<div flex layout-padding>
+	<div layout="row">
+		<h1 class="page-title">General rolls</h1>
+		<md-button class="md-warn md-icon-button" aria-label="clear all rolls" ng-click="vm.init()">
+			<md-tooltip md-direction="top">
+				Clear all rolls
+			</md-tooltip>
+			<md-icon>refresh</md-icon>
+		</md-button>
+	</div>
+	<div layout="column">
+		<div class="button-set__roll" layout="row" layout-align="start center" ng-repeat="die in vm.dice">
+			<md-button class="md-primary roll-initial" aria-label="roll {{ die.name }}" ng-click="vm.roll(die.name, die.multiplier)">
+				<span ng-if="die.icon === ''">Roll {{ die.name }}</span>
+				<span ng-if="die.icon != ''" class="icon__die-icon">
+					Roll
+					<md-icon md-svg-icon="{{ die.icon }}"></md-icon>
+				</span>
+			</md-button>
+			<md-button class="md-accent md-icon-button roll-additional" aria-label="add additional roll to result total" ng-click="vm.roll(die.name, die.multiplier, true)" ng-if="die.result != 0">
+				<md-tooltip md-direction="top">
+					Add another roll to total
+				</md-tooltip>
+				<md-icon>add</md-icon>
+			</md-button>
+			<span class="roll-result" ng-if="die.result != 0">{{ die.result }}</span>
+			<span class="roll-times-rolled" ng-if="die.timesRolled > 1">rolled {{ die.timesRolled }}x</span>
+		</div>
+	</div>
+</div>

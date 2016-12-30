@@ -5,12 +5,12 @@
 	angular
 		.module('app')
 		.config(['$routeProvider', function($routeProvider) {
-			$routeProvider.when('/home', {
-				templateUrl: 'home/home.html',
-				controller: 'HomeController',
+			$routeProvider.when('/RoW', {
+				templateUrl: 'view-RoW/RoW.html',
+				controller: 'RoWController',
 				controllerAs: 'vm'
 			}).
-			otherwise({redirectTo: '/home'});
+			otherwise({redirectTo: '/'});
 		}]);
 
 })();

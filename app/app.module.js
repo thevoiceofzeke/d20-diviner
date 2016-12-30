@@ -6,8 +6,7 @@
 		.module('app', [
 			'app.core',
 			'app.home',
-			'app.docs',
-			'app.version'
+			'app.rod-of-wonder'
 		]);
 
 })();
