@@ -2,7 +2,7 @@
 	<div layout="row">
 		<h1 class="page-title">Rod of Wonder roller</h1>
 		<span flex></span>
-		<form ng-submit="roll(vm.manualRoll)" ng-if="!vm.isResult">
+		<form ng-submit="vm.roll(vm.manualRoll)" ng-if="!vm.isResult">
 			<md-input-container class="no-bottom-margin">
 				<label>Manual roll</label>
 				<input ng-model="vm.manualRoll">

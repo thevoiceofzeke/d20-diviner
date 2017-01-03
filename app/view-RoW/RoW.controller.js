@@ -102,13 +102,13 @@
 		// *********************************
 		// Exposed methods
 		// *********************************
-		function roll(setNumber) {
+		function roll() {
 			vm.isResult = true;
 
 			// For debugging: IF THERE IS A NUMBER PASSED IN, DON'T BOTHER ROLLING
 			var result;
-			if (setNumber) {
-				result = setNumber;
+			if (vm.manualRoll != '') {
+				result = vm.manualRoll;
 			} else {
 				result = Math.floor(Math.random() * 101);
 			}
